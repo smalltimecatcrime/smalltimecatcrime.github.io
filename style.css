@@ -85,12 +85,29 @@ header {
 }
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* По умолчанию 3 колонки */
     gap: 10px;
     padding-left: 85px;
     padding-right: 85px;
     padding-top: 140px;
 }
+
+/* На экранах меньше 1200px – 2 колонки */
+@media (max-width: 1200px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* На экранах меньше 800px – 1 колонка */
+@media (max-width: 800px) {
+    .gallery {
+        grid-template-columns: repeat(1, 1fr);
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
 .gallery img {
     width: 100%;
     transition: 0.3s;
